@@ -1,0 +1,48 @@
+# Configuration template for prok-rnaseq-pipeline.
+# Update the placeholder values to match your project before running Snakemake.
+
+project:
+  name: FM_project
+
+paths:
+  samples_table: config/fm_samples.txt    # Tab-delimited sample sheet
+  results_dir: results/fm/
+  logs_dir: results/fm/logs/
+  scratch_dir: results/fm/scratch
+
+references:
+  genome_fasta: /path/to/reference/na1_genome.fa
+  annotation_gtf: /path/to/reference/na1_annotation.gtf
+  annotation_bed: /path/to/reference/na1_genes.bed
+  build_annotation_bed: true
+  trna_gtf: /path/to/reference/na1_annotation_tRNA.gtf
+  rrna_gtf: /path/to/reference/na1_annotation_rRNA.gtf
+  build_trna_gtf: false
+  build_rrna_gtf: false
+  hisat2_index_prefix: /path/to/reference/hisat2/genome   # Folder/prefix for index files
+  build_hisat2_index: false          # Set false if an index already exists
+
+qc:
+  threads: 4
+  extra_params: "--trim_poly_g --poly_g_min_len 10 --cut_right --cut_right_window_size 4 --cut_right_mean_quality 20 --length_required 30"
+
+hisat2:
+  align_threads: 8
+  build_threads: 4
+  extra_params: "--dta --no-spliced-alignment"   # Additional flags appended to hisat2 command
+
+featurecounts:
+  annotation_type: CDS
+  gene_id_attribute: gene_id
+  extra_params: "-O"
+  threads: 4
+
+samtools:
+  sort_threads: 4
+  flagstat_threads: 4
+  stats_threads: 4
+
+infer_strandedness:
+  enabled: true
+  subsample_reads: 500000      # Number of reads per library (or percentage string e.g. "10%")
+  min_fraction: 0.7            # Fraction threshold to call FR/RF confidently

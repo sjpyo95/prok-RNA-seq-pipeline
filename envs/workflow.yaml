@@ -1,0 +1,27 @@
+name: prok-rnaseq-workflow
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3
+  - snakemake
+  - mamba
+  - pandas
+  - pyyaml
+  - click
+  - networkx
+  - graphviz
+  - samtools
+  - pigz
+  - fastqc
+  - openjdk
+  - fastp
+  - hisat2
+  - subread          # featureCounts
+  - rseqc
+  - multiqc
+  - r-base
+  - bioconductor-sva
+  - r-optparse
+  - r-data.table

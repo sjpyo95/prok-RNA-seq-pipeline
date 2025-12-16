@@ -1,0 +1,7 @@
+sample_id	condition	fastq1	fastq2	library	strandedness	batch
+MMF-1	MMF	/path/to/MMF-1_R1.fastq.gz	/path/to/MMF-1_R2.fastq.gz	PE	RF	1
+MMF-2	MMF	/path/to/MMF-2_R1.fastq.gz	/path/to/MMF-2_R2.fastq.gz	PE	RF	1
+MMFM-1	MMFM	/path/to/MMFM-1_R1.fastq.gz	/path/to/MMFM-1_R2.fastq.gz	PE	RF	1
+MMFM-2	MMFM	/path/to/MMFM-2_R1.fastq.gz	/path/to/MMFM-2_R2.fastq.gz	PE	RF	1
+MMM-1	MMM	/path/to/MMM-1_R1.fastq.gz	/path/to/MMM-1_R2.fastq.gz	PE	RF	1
+MMM-2	MMM	/path/to/MMM-2_R1.fastq.gz	/path/to/MMM-2_R2.fastq.gz	PE	RF	1
